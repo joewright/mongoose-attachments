@@ -1,17 +1,19 @@
 ## What's mongoose-attachments?
 
-Mongoose-Attachments is an attachments plugin for [Mongoose.js](http://mongoosejs.com/). Supports [Amazon S3](http://aws.amazon.com/es/s3/) out-of-the-box and ImageMagick transformations styles.
+Mongoose-Attachments is an attachments plugin for [Mongoose.js](http://mongoosejs.com/). It handles ImageMagick transformations for the following providers:
 
-### Installation
+* [mongoose-attachments-localfs](https://github.com/firebaseco/mongoose-attachments-localfs)
+* [mongoose-attachments-aws2js](https://github.com/firebaseco/mongoose-attachments-aws2js)
+* [mongoose-attachments-knox](https://github.com/firebaseco/mongoose-attachments-knox)
 
-    $ npm install mongoose-attachments
+Note: Mongoose-Attachments is bundled with each provider.
 
 ### Usage
 
-The following example extens the 'Post' model to use attachments with a property called 'image' and three different styles.
+The following example extends the 'Post' model to use attachments with a property called 'image' and three different styles.
 
     var mongoose = require('mongoose');
-    var attachments = require('mongoose-attachments');
+    var attachments = require('mongoose-attachments-aws2js');
     var PostSchema = new mongoose.Schema({
       title: String,
       description: String
@@ -83,6 +85,7 @@ Assuming that the HTML form sent a file in a field called 'image':
     })	
 
 #### Using Local Storage
+With [mongoose-attachments-localfs](https://github.com/firebaseco/mongoose-attachments-localfs).
 
     // further up: var path = require('path');
     
